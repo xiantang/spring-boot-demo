@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController // tells Spring to render the resulting string directly back to the caller.
 @EnableAutoConfiguration
 public class HelloController {
-
-
-
     @RequestMapping("/") // provides “routing” information
     public String say(){
         return "Hello world";
