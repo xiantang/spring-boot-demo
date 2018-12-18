@@ -19,6 +19,10 @@ public class Example {
         return "Hello world";
 
     }
+    @RequestMapping("/dd")
+    public String dd(){
+        return "dd";
+    }
 
     public static void main(String[] args) throws Exception{
 
