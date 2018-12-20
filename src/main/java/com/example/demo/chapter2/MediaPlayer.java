@@ -1,4 +1,5 @@
 package com.example.demo.chapter2;
-public interface CompactDisc {
+
+public interface MediaPlayer {
     String play();
 }
