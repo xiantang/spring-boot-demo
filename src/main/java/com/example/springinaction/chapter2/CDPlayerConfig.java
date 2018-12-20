@@ -1,6 +1,8 @@
 package com.example.springinaction.chapter2;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 // 没有显式的声明任何bean
 // 启用组件扫描
@@ -16,9 +18,9 @@ import org.springframework.context.annotation.Configuration;
 
 // 推荐使用
 // 将其指定为包中含有的类或者接口
-//@ComponentScan(basePackageClasses = CDPlayer.class)
-
-
+// @ComponentScan(basePackageClasses = CDPlayer.class)
+// 导入配置
+//@Import(CDConfig.class)
 public class CDPlayerConfig {
     // 显式配置
     //    @Bean
@@ -44,10 +46,10 @@ public class CDPlayerConfig {
 
     // 带有@Bean 注解的方法可以采用任何java
     // 必要的功能来产生bean实例
-//    @Bean
-//    public CDPlayer cdPlayer(CompactDisc compactDisc){
-//        return new CDPlayer(compactDisc);
-//    }
+    @Bean
+    public CDPlayer cdPlayer(CompactDisc compactDisc){
+        return new CDPlayer(compactDisc);
+    }
 
 
 

@@ -74,9 +74,9 @@
           p:tracks-ref="trackList"/>
 
 
-    <bean id="cdPlayer" class="com.example.springinaction.chapter2.CDPlayer">
+    <!--<bean id="cdPlayer" class="com.example.springinaction.chapter2.CDPlayer">-->
 
-        <property name="compactDisc" ref="compactDisc"/>
+        <!--<property name="compactDisc" ref="compactDisc"/>-->
 
-    </bean>
+    <!--</bean>-->
 </beans>

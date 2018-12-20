@@ -15,10 +15,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 
 // 使用javaConfig
-// @ContextConfiguration(classes = CDPlayerConfig.class)
+// @ContextConfiguration(classes = SoundSystemConfig.class)
 
 // 设置xml
-@ContextConfiguration(locations = {"classpath:player.xml"})
+@ContextConfiguration(locations = {"classpath:chapter2/rootconfig.xml"})
 public class CDPlayerTest {
     @Rule
     public final StandardOutputStreamLog log = new StandardOutputStreamLog();
@@ -28,6 +28,7 @@ public class CDPlayerTest {
 
     @Autowired
     private CompactDisc cd;
+
 
     @Test
     public void cdShouldNotBeNull() {
