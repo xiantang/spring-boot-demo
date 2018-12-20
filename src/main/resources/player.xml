@@ -12,14 +12,14 @@
             http://www.springframework.org/schema/util/spring-util.xsd"
 >
     <!--申明一个bean-->
-    <!--<bean id="compactDisc" class="com.example.demo.chapter2.SgtPeppers"/>-->
+    <!--<bean id="compactDisc" class="com.example.springinactionnginaction.chapter2.SgtPeppers"/>-->
 
-    <!--<bean id="cdPlayer" class="com.example.demo.chapter2.CDPlayer">-->
+    <!--<bean id="cdPlayer" class="com.example.springinactionnginaction.chapter2.CDPlayer">-->
     <!--<constructor-arg ref="compactDisc"/>-->
 
 
     <!--通过构造器注入-->
-    <!--<bean id="compactDisc" class="com.example.demo.chapter2.BlankDisc">-->
+    <!--<bean id="compactDisc" class="com.example.springinactionnginaction.chapter2.BlankDisc">-->
 
     <!--&lt;!&ndash;属性表明给定的值要以字面形式注入&ndash;&gt;-->
     <!--<constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band"/>-->
@@ -37,7 +37,7 @@
     <!--c:_1="The Beatles"-->
     <!--</bean>-->
 
-    <!--<bean id="compactDisc" class="com.example.demo.chapter2.BlankDisc">-->
+    <!--<bean id="compactDisc" class="com.example.springinactionnginaction.chapter2.BlankDisc">-->
     <!--<property name="title" value="Sgt. Pepper's Lonely Hearts Club Band"/>-->
     <!--<property name="artist" value="The Beatles"/>-->
     <!--<property name="tracks">-->
@@ -51,7 +51,7 @@
 
     <!--使用p-命名空间-->
     <!--如果没有-ref的话装配的就是字面量-->
-    <!--<bean id="compactDisc" class="com.example.demo.chapter2.BlankDisc"-->
+    <!--<bean id="compactDisc" class="com.example.springinactionnginaction.chapter2.BlankDisc"-->
     <!--p:title="Sgt. Pepper's Lonely Hearts Club Band"-->
     <!--p:artist="The Beatles">-->
     <!--<property name="tracks">-->
@@ -68,13 +68,13 @@
         <value>With a Little Help from Friends</value>
     </util:list>
     <!--将trackList注入到track属性中去-->
-    <bean id="compactDisc" class="com.example.demo.chapter2.BlankDisc"
+    <bean id="compactDisc" class="com.example.springinaction.chapter2.BlankDisc"
           p:title="Sgt. Pepper's Lonely Hearts Club Band"
           p:artist="The Beatles"
           p:tracks-ref="trackList"/>
 
 
-    <bean id="cdPlayer" class="com.example.demo.chapter2.CDPlayer">
+    <bean id="cdPlayer" class="com.example.springinaction.chapter2.CDPlayer">
 
         <property name="compactDisc" ref="compactDisc"/>
 

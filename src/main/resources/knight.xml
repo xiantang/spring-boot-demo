@@ -2,15 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
-    <bean id="knight" class="com.example.demo.chapter1.BraveKnight">
+    <bean id="knight" class="com.example.springinaction.chapter1.BraveKnight">
         <constructor-arg ref="quest"/>
         <constructor-arg ref="minstrel"/>
     </bean>
 
-    <bean id="minstrel" class="com.example.demo.chapter1.Minstrel">
+    <bean id="minstrel" class="com.example.springinaction.chapter1.Minstrel">
         <constructor-arg value="#{T(System).out}"/>
     </bean>
-    <bean id="quest" class="com.example.demo.chapter1.SlayDragonQuest">
+    <bean id="quest" class="com.example.springinaction.chapter1.SlayDragonQuest">
         <constructor-arg value="#{T(System).out}"/>
     </bean>
     <!--定义切面 BraveKnight不需要显式的去调用他-->
