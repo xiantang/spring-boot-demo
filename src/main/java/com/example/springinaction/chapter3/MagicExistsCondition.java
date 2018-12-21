@@ -19,6 +19,6 @@ public class MagicExistsCondition implements Condition {
 
         // 如果返回true 就会创建带有@Conditional注解的bean
         return env.containsProperty("magic");
-        //TODO 86
+
     }
 }
