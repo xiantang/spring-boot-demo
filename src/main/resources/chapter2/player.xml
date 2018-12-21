@@ -68,12 +68,16 @@
         <value>With a Little Help from Friends</value>
     </util:list>
     <!--将trackList注入到track属性中去-->
-    <bean id="compactDisc" class="com.example.springinaction.chapter2.BlankDisc"
-          p:title="Sgt. Pepper's Lonely Hearts Club Band"
-          p:artist="The Beatles"
-          p:tracks-ref="trackList"/>
+    <!--<bean id="compactDisc" class="com.example.springinaction.chapter2.BlankDisc"-->
+          <!--p:title="Sgt. Pepper's Lonely Hearts Club Band"-->
+          <!--p:artist="The Beatles"-->
+          <!--p:tracks-ref="trackList"/>-->
 
 
+    <!--<bean id="sgtPeppers"-->
+          <!--class="com.example.springinaction.chapter2.BlankDisc"-->
+          <!--c:title="${disc.title}"-->
+          <!--c:artist="${disc.artist}"/>-->
     <!--<bean id="cdPlayer" class="com.example.springinaction.chapter2.CDPlayer">-->
 
         <!--<property name="compactDisc" ref="compactDisc"/>-->
