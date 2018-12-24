@@ -1,5 +1,7 @@
 package com.example.springinaction.chapter2;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import java.util.List;
 
 public class BlankDisc implements CompactDisc {
@@ -8,14 +10,22 @@ public class BlankDisc implements CompactDisc {
     private String artist;
     private List<String> tracks;
 
+    @Override
+    public void playTrack(int trackNumber) {
+        System.out.println(tracks.get(trackNumber));
+    }
 
-    public BlankDisc(String title, String artist,List<String> tracks) {
+    public BlankDisc() {
+    }
+
+    public BlankDisc(String title, String artist, List<String> tracks) {
         this.tracks = tracks;
         this.title = title;
         this.artist = artist;
     }
 
-    public BlankDisc(String title, String artist) {
+    public BlankDisc(@Value("#{systemProperties['disc.title']") String title,
+                     @Value("#{systemProperties['disc.artist']") String artist) {
         this.title = title;
         this.artist = artist;
     }
@@ -32,6 +42,9 @@ public class BlankDisc implements CompactDisc {
     public void setTracks(List<String> tracks) {
         this.tracks = tracks;
     }
+
+
+
 
     @Override
     public String play() {
