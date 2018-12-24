@@ -21,16 +21,16 @@ public class TrackCounter {
     // * 返回任意类型
     // CompactDisc.playTrack(int)
     // args(trackNumber) 参数
-    @Pointcut(
-    "execution(* CompactDisc.playTrack(int))"+
-            "&& args(trackNumber)"
-    )
-    public void trackPlayed(int trackNumber){}
+//    @Pointcut(
+//    "execution(* CompactDisc.playTrack(int))"+
+//            "&& args(trackNumber)"
+//    )
+//    public void trackPlayed(int trackNumber){}
 
     
 
 //
-    @Before("trackPlayed(trackNumber)")
+//    @Before("trackPlayed(trackNumber)")
     public void countTrack(int trackNumber){
         int currentCount = getPlayCount(trackNumber);
         trackCounts.put(trackNumber, currentCount + 1);

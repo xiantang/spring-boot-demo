@@ -7,11 +7,14 @@ import org.springframework.context.annotation.Bean;
 
 
 //　切面
-@Aspect
+//@Aspect
 public class Audience {
 
 //    @Pointcut("execution(**cencert.Performance.perform(..)))")
 //    public void performance(){}
+
+    @Pointcut("execution(* Performance.perform(..))")
+    public void performance(){}
 
     // 在表演之前
     // 在perform方法执行的时候执行
@@ -43,27 +46,43 @@ public class Audience {
 
     // Pointcut 注解是设置一个切点表达式
     // 定义命名的切点
-    @Pointcut("execution(**cencert.Performance.perform(..))")
-    public void performance(){
-        // 实际内容不重要
-        // 提供一个标识
-    }
+//    @Pointcut("execution(**cencert.Performance.perform(..))")
+//    public void performance(){
+//        // 实际内容不重要
+//        // 提供一个标识
+//    }
 
 //    @Before("performance()")
-//    public void slienceCallphones(){
-//        System.out.println("Sliencing cell phones");
-//    }
+    public void slienceCallphones(){
+        System.out.println("Sliencing cell phones");
+    }
 //
 //    @Before("performance()")
-//    public void takeSeats(){
-//        System.out.println("Taking seat");
-//    }
+    public void takeSeats(){
+        System.out.println("Taking seat");
+    }
 //
 //    // 表演之后
 //    @AfterReturning("performance()")
-//    public void applause(){
-//        System.out.println("CLAP CLAP CLAP");
+    public void applause(){
+        System.out.println("CLAP CLAP CLAP");
+    }
+
+//    @Around("per")
+//    public void watchPerformance(ProceedingJoinPoint jp){
+//
+//        try {
+//            System.out.println("Silencing cell phones");
+//            System.out.println("Taking seats");
+//            jp.proceed();
+//            System.out.println("CLAP CLAP CLAP");
+//        } catch (Throwable throwable) {
+//            System.out.println("Demanding a refund");
+//        }
+//
 //    }
+
+
 //
 //
 //    // 异常抛出后执行
@@ -89,4 +108,5 @@ public class Audience {
         }
 
     }
+
 }
