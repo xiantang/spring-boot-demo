@@ -20,7 +20,7 @@ public class BlankDisc implements CompactDisc {
         this.artist = artist;
     }
 
-    
+
     public void setTitle(String title) {
         this.title = title;
     }
