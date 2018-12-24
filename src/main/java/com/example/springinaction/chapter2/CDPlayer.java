@@ -16,7 +16,7 @@ public class CDPlayer implements MediaPlayer{
     // 就会抛出一个异常
     // 为了避免异常
 //    @Autowired(required = false)
-    public CDPlayer(CompactDisc cd) {
+    public  CDPlayer(CompactDisc cd) {
         this.cd = cd;
     }
 

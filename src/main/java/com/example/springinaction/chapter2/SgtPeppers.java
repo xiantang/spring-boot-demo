@@ -16,7 +16,8 @@ public class SgtPeppers implements CompactDisc {
         return (String)"Playing " + title + " by " + artist;
     }
 
-//    public static void main(String[] args) {
-//        new SgtPeppers().play();
-//    }
+    @Override
+    public void playTrack(int trackNumber) {
+
+    }
 }
