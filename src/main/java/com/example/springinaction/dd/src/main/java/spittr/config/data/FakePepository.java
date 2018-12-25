@@ -17,4 +17,10 @@ public class FakePepository implements SpittleRepository {
         }
         return spittles;
     }
+
+    @Override
+    public Spittle findOne(long spittleId) {
+        Spittle spittle = new Spittle("Spittle " + spittleId, new Date());
+        return spittle;
+    }
 }
