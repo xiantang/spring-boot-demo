@@ -2,6 +2,7 @@ import org.springframework.web.servlet.view.InternalResourceView;
 import spittr.config.Controller.HomeController;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
+import spittr.config.Controller.SpitterContoller;
 import spittr.config.Controller.SpittleController;
 import spittr.config.data.Spittle;
 import spittr.config.data.SpittleRepository;
@@ -45,6 +46,7 @@ public class HomeControllerTest {
     }
 
 
+    //测试Spittles
     @Test
     public void shouldSHowRecentSpittles() throws Exception {
         List<Spittle> expectedSpittles = createSpittleList(20);
@@ -68,6 +70,7 @@ public class HomeControllerTest {
     }
 
 
+    // 测试分页
     @Test
     public void shouldShowPagedSpittles() throws Exception {
         List<Spittle> expectedSpittles = createSpittleList(50);
@@ -86,6 +89,7 @@ public class HomeControllerTest {
 
     }
 
+    // 测试单条评论
     @Test
     public void testSpittle() throws Exception {
         Spittle expectedSpittle = new Spittle("Hello", new Date());
@@ -97,6 +101,29 @@ public class HomeControllerTest {
         mockMvc.perform(get("/spittles/12345"))
                 .andExpect(view().name("spittles"))
                 .andExpect(model().attributeExists("spittle"));
+
+    }
+
+    // 测试登陆页面
+    @Test
+    public void showShowRegistration() throws Exception{
+        SpitterContoller controller = new SpitterContoller();
+        // 构建MockMvc
+        MockMvc mockMvc = standaloneSetup(controller).build();
+        // 断言视图
+        mockMvc.perform(get("/spitter/register"))
+                .andExpect(view().name("registerForm"));
+    }
+
+
+    @Test
+    public void shouldProcessRegistration() throws Exception{
+
+        SpittleRepository spittleRepository =
+                mock(SpittleRepository.class);
+//        Spittle unsaved =
+//                new Spittler("jbauer", "24hours"
+//                        , "Jack", "Bauer");
 
     }
 
