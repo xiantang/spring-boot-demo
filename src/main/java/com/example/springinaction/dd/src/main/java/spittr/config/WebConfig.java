@@ -74,21 +74,21 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
 
-    @Bean
-    public MultipartResolver multipartResolver() throws IOException {
-
-
-//        return new StandardServletMultipartResolver();
-        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setUploadTempDir(
-                new FileSystemResource(
-                        "/Users/dd/project/demo/src/main/java/com/example/springinaction/dd/src/main/webapp/WEB-INF/uploads"
-                )
-        );
-        multipartResolver.setMaxInMemorySize(0);
-        multipartResolver.setMaxUploadSize(2097152);
-        return multipartResolver;
-    }
+//    @Bean
+//    public MultipartResolver multipartResolver() throws IOException {
+//
+//
+////        return new StandardServletMultipartResolver();
+//        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+//        multipartResolver.setUploadTempDir(
+//                new FileSystemResource(
+//                        "/Users/dd/project/demo/src/main/java/com/example/springinaction/dd/src/main/webapp/WEB-INF/uploads"
+//                )
+//        );
+//        multipartResolver.setMaxInMemorySize(0);
+//        multipartResolver.setMaxUploadSize(2097152);
+//        return multipartResolver;
+//    }
 //    @Bean
 //    public TilesConfigurer tilesConfigurer() {
 //        TilesConfigurer tiles = new TilesConfigurer();

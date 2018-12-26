@@ -2,16 +2,15 @@ package spittr.Controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import spittr.data.Spittle;
 import spittr.data.SpittleRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -81,7 +80,17 @@ public class SpittleController {
     }
 
 
-
+//    @RequestMapping(method = RequestMethod.POST)
+//    public String saveSpittle(SpittleForm form, Model model) {
+//        spittleRepository.save(
+//                new Spittle(null, form.getMessage(), new Date(),
+//                        form.getLongitude(), form.getLatitude)
+//        );
+//        return "redirect:/spittles";
+//    }
+//
+//    @ExceptionHandler(DuplicateKeyException.class)
+//    public String handle
 
 
 

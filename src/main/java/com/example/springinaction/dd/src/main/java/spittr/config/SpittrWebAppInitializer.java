@@ -44,10 +44,10 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
          **/
 //        DispatcherServlet ds = new DispatcherServlet();
 //        ServletRegistration.Dynamic registration
-        registration.setMultipartConfig(
-                new MultipartConfigElement("/Users/dd/project/demo/src/main/java/com/example/springinaction/dd/src/main/webapp/WEB-INF/views",
-                        2097152, 4194304, 0)
-        );
+//        registration.setMultipartConfig(
+//                new MultipartConfigElement("/Users/dd/project/demo/src/main/java/com/example/springinaction/dd/src/main/webapp/WEB-INF/views",
+//                        2097152, 4194304, 0)
+//        );
     }
 //
 //    @Override

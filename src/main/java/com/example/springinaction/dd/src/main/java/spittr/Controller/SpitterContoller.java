@@ -40,18 +40,19 @@ public class SpitterContoller {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String processRegistration(
-            @RequestPart("profilePicture") Part profilePicture,
+            @RequestPart(name = "profilePicture",required = false) Part profilePicture,
             @Valid Spitter spitter,
             Errors errors
     ) {
-        if (errors.hasErrors()) {
-            return "registerForm";
-        }
-        try {
-            profilePicture.write("/Users/dd/project/demo/src/main/java/com/example/springinaction/dd/src/main/webapp/WEB-INF/uploads" + profilePicture.getName());
-        }catch (Exception e ){
-
-        }
+//        profilePicture.write();
+//        if (errors.hasErrors()) {
+//            return "registerForm";
+//        }
+//        try {
+//            profilePicture.write("/Users/dd/project/demo/src/main/java/com/example/springinaction/dd/src/main/webapp/WEB-INF/uploads" + profilePicture.getName());
+//        }catch (Exception e ){
+//
+//
 
         spitterRepository.save(spitter);
         return "redirect:/spitter/" + spitter.getUsername();
