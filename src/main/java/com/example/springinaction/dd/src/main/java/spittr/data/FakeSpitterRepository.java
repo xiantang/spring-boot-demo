@@ -1,4 +1,4 @@
-package spittr.config.data;
+package spittr.data;
 
 import org.springframework.stereotype.Repository;
 

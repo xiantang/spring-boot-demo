@@ -1,4 +1,4 @@
-package spittr.config.Controller;
+package spittr.Controller;
 
 
 import org.springframework.stereotype.Controller;

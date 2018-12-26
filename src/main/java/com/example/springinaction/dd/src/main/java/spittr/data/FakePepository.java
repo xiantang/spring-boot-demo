@@ -1,14 +1,15 @@
-package spittr.config.data;
+package spittr.data;
 
 
 import org.springframework.stereotype.Repository;
+import spittr.data.Spittle;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Repository
-public class FakePepository implements SpittleRepository {
+public class FakePepository implements spittr.data.SpittleRepository {
     @Override
     public List<Spittle> findSpittles(long max, int count) {
         List<Spittle> spittles = new ArrayList<>();

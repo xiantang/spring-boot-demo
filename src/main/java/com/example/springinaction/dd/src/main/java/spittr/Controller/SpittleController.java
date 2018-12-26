@@ -1,4 +1,4 @@
-package spittr.config.Controller;
+package spittr.Controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import spittr.config.data.Spittle;
-import spittr.config.data.SpittleRepository;
+import spittr.data.Spittle;
+import spittr.data.SpittleRepository;
 
 import java.util.List;
 import java.util.Map;
@@ -70,7 +70,13 @@ public class SpittleController {
             @PathVariable("spittleId") long spittleId,
             Model model
     ) {
-        model.addAttribute(spittleRepository.findOne(spittleId));
+        Spittle spittle = spittleRepository.findOne(spittleId);
+
+
+        if (spittle == null){
+            throw new SpittleNotFoundException();
+        }
+        model.addAttribute(spittle);
         return "spittles";
     }
 

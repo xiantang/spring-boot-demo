@@ -1,13 +1,24 @@
-package spittr.config.config;
+package spittr.config;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
+import sun.plugin2.message.Message;
+
+import java.io.IOException;
 
 @Configuration
 @EnableWebMvc  //启用SpringMVC
@@ -18,7 +29,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     // 配置JSP视图解析器
 
     @Bean
-    public ViewResolver viewResolver(){
+    public ViewResolver viewResolver() {
         /**
          * 使用 /WEB-INF 和 .jsp 前后缀来确定JSP文件的物理位置
          * @date 2018/12/26
@@ -31,6 +42,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
         resolver.setExposeContextBeansAsAttributes(true);
+        // 解析为JSTLView
+        resolver.setViewClass(
+                org.springframework.web.servlet.view.JstlView.class
+        );
+
         return resolver;
     }
 
@@ -40,4 +56,56 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
+
+
+    @Bean
+    public MessageSource messageSource() {
+        /**
+         *
+         * @date 2018/12/26
+         * @params []
+         * @return org.springframework.context.MessageSource
+         **/
+        ReloadableResourceBundleMessageSource messageSource =
+                new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("/WEB-INF/message");
+        messageSource.setCacheSeconds(10);
+        return messageSource;
+    }
+
+
+    @Bean
+    public MultipartResolver multipartResolver() throws IOException {
+
+
+//        return new StandardServletMultipartResolver();
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setUploadTempDir(
+                new FileSystemResource(
+                        "/Users/dd/project/demo/src/main/java/com/example/springinaction/dd/src/main/webapp/WEB-INF/uploads"
+                )
+        );
+        multipartResolver.setMaxInMemorySize(0);
+        multipartResolver.setMaxUploadSize(2097152);
+        return multipartResolver;
+    }
+//    @Bean
+//    public TilesConfigurer tilesConfigurer() {
+//        TilesConfigurer tiles = new TilesConfigurer();
+//        // 指定Tile 定义的位置
+//        tiles.setDefinitions(new String[]{
+//                "/WEB-INF/**/tiles.xml"
+//        });
+//        tiles.setCheckRefresh(true);
+//        return tiles;
+//
+//    }
+
+
+//    @Bean
+//    public ViewResolver viewResolver(){
+//            return new TilesViewResolver();
+//    }
+
+
 }

@@ -1,6 +1,11 @@
-package spittr.config.config;
+package spittr.config;
 
+import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
 
 
 public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -29,5 +34,24 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
         };
     }
 
-
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        /**
+         * 处理文件上传
+         * @date 2018/12/26
+         * @params [registration]
+         * @return void
+         **/
+//        DispatcherServlet ds = new DispatcherServlet();
+//        ServletRegistration.Dynamic registration
+        registration.setMultipartConfig(
+                new MultipartConfigElement("/Users/dd/project/demo/src/main/java/com/example/springinaction/dd/src/main/webapp/WEB-INF/views",
+                        2097152, 4194304, 0)
+        );
+    }
+//
+//    @Override
+//    protected Filter[] getServletFilters() {
+//        return super.getServletFilters();
+//    }
 }

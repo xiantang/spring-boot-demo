@@ -1,11 +1,11 @@
 import org.springframework.web.servlet.view.InternalResourceView;
-import spittr.config.Controller.HomeController;
+import spittr.Controller.HomeController;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
-import spittr.config.Controller.SpitterContoller;
-import spittr.config.Controller.SpittleController;
-import spittr.config.data.Spittle;
-import spittr.config.data.SpittleRepository;
+import spittr.Controller.SpitterContoller;
+import spittr.Controller.SpittleController;
+import spittr.data.Spittle;
+import spittr.data.SpittleRepository;
 import sun.security.provider.ConfigFile;
 
 import java.util.ArrayList;
