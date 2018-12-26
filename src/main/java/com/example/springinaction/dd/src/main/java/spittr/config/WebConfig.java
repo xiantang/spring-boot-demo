@@ -16,10 +16,18 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
 
     // 配置JSP视图解析器
+
     @Bean
     public ViewResolver viewResolver(){
+        /**
+         * 使用 /WEB-INF 和 .jsp 前后缀来确定JSP文件的物理位置
+         * @date 2018/12/26
+         *
+         * @return org.springframework.web.servlet.ViewResolver
+         **/
         InternalResourceViewResolver resolver =
                 new InternalResourceViewResolver();
+
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
         resolver.setExposeContextBeansAsAttributes(true);
