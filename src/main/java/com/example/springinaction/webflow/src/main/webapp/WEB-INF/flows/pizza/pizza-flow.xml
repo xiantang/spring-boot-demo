@@ -5,12 +5,6 @@
         start-state="identifyCustomer"
 >
 
-    <!--<view-state id="welcome"/>-->
-    <!--<view-state id="takePayment" model="flowScope.paymentDetail"/>-->
-    <!--<action-state id="saveOrder">-->
-        <!--<evaluate expression="pi"-->
-        <!---->
-    <!--</action-state>-->
     <var name="order"
          class="domain.Order"/>
     <subflow-state id="identifyCustomer" subflow="pizza/customer">
@@ -25,14 +19,18 @@
         <transition on="orderCreated" to="takePayment"/>
     </subflow-state>
 
+    <!--支付流程-->
     <subflow-state id="takePayment" subflow="pizza/payment">
         <input name="order" value="order"/>
         <transition to="thankCustomer"/>
     </subflow-state>
+    <!--感谢流程-->
     <view-state id="thankCustomer">
         <transition to="endState"/>
     </view-state>
+    <!--结束-->
     <end-state id="endState"/>
+    <!--全局取消-->
     <global-transitions>
         <transition on="cancel" to="endState"/>
     </global-transitions>
