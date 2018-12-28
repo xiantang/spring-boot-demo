@@ -18,7 +18,7 @@
 <h1>
     Register
 </h1>
-<sf:form method="POST" commandName="spitter" enctype="multipart/form-data">
+<sf:form method="POST" commandName="spitter">
     <%--First Name: <input type="text" name="firstNmae"/> <br/>--%>
     <%--Last Name: <input type="text" name="lastName"/> <br/>--%>
     <%--User Name: <input type="text" name="username"/> <br/>--%>
@@ -31,9 +31,9 @@
     Email: <sf:input path="email"/> <br/>
     User Name: <sf:input path="username"/> <br/>
     Password: <sf:input path="password"/> <br/>
-    <label>Profile Picture</label>
-    <input type="file" name="profilePicture"
-           accept="image/jpeg,image/png,image/gif" /> <br/>
+    <%--<label>Profile Picture</label>--%>
+    <%--<input type="file" name="profilePicture"--%>
+           <%--accept="image/jpeg,image/png,image/gif" /> <br/>--%>
 
     <input type="submit" value="Register">
 </sf:form>

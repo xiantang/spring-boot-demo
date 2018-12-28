@@ -20,15 +20,14 @@ import java.util.Map;
 @RequestMapping("/spittles")
 
 public class SpittleController {
-    private SpitterRepository spitterRepository;
+
     private SpittleRepository spittleRepository;
     private static final String MAX_LONG_AS_STRING = "9223372036854775807";
     @Autowired
     public SpittleController(
-            SpittleRepository spittleRepository,
-            SpitterRepository spitterRepository
+            SpittleRepository spittleRepository
     ){
-        this.spitterRepository = spitterRepository;
+
         this.spittleRepository = spittleRepository;
     }
 //

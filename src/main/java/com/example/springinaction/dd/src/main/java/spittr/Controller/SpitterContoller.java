@@ -40,7 +40,7 @@ public class SpitterContoller {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String processRegistration(
-            @RequestPart(name = "profilePicture",required = false) Part profilePicture,
+//            @RequestPart(name = "profilePicture",required = false) Part profilePicture,
             @Valid Spitter spitter,
             Errors errors
     ) {
