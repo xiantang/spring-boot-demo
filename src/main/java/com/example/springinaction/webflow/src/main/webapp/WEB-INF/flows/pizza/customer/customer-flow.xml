@@ -31,6 +31,7 @@
 
     <!--检查地理位置-->
     <decision-state id="checkDeliveryArea">
+        <!--决策状态-->
         <if test="pizzaFlowActions.checkDeliveryArea(order.customer.zipCode)"
             then="addCustomer"
             else="deliveryWarning"/>
