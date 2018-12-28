@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import spittr.data.Spitter;
+import spittr.data.SpitterRepository;
 import spittr.data.Spittle;
 import spittr.data.SpittleRepository;
 
@@ -18,15 +20,26 @@ import java.util.Map;
 @RequestMapping("/spittles")
 
 public class SpittleController {
+    private SpitterRepository spitterRepository;
     private SpittleRepository spittleRepository;
     private static final String MAX_LONG_AS_STRING = "9223372036854775807";
     @Autowired
     public SpittleController(
-            SpittleRepository spittleRepository
+            SpittleRepository spittleRepository,
+            SpitterRepository spitterRepository
     ){
+        this.spitterRepository = spitterRepository;
         this.spittleRepository = spittleRepository;
     }
-
+//
+//    @Autowired
+//    public SpittleController(
+//
+//            SpitterRepository spitterRepository
+//    ){
+//
+//        this.spittleRepository = spittleRepository;
+//    }
 //    @RequestMapping(method = RequestMethod.GET)
 //    public String spittles(Map model){
 //

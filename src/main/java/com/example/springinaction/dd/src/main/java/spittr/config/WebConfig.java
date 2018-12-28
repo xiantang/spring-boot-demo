@@ -5,11 +5,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import spittr.data.JdbcSpitterRepository;
+import spittr.data.SpitterRepository;
+
+import javax.sql.DataSource;
+import javax.xml.crypto.Data;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 @Configuration
 @EnableWebMvc  //启用SpringMVC
@@ -63,6 +73,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         messageSource.setCacheSeconds(10);
         return messageSource;
     }
+
+    //    @Bean
+//    public JndiObjectFactoryBean dataSource(){
+//        JndiObjectFactoryBean jndiObjectFB = new JndiObjectFactoryBean();
+//        jndiObjectFB.setJndiName("jdbc/SpittrDS");
+//        jndiObjectFB.setResourceRef(true);
+//        jndiObjectFB.setProxyInterfaces(javax.sql.DataSource.class);
+//        return jndiObjectFB;
+//    }
 
 
 //    @Bean
