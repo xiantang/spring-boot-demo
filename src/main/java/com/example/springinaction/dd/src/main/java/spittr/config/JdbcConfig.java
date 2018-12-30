@@ -31,7 +31,7 @@ public class JdbcConfig {
 //        return new JdbcSpitterRepository(jdbcTemplate);
 //    }
 
-    @Bean
-    public 
+//    @Bean
+//    public
 
 }
