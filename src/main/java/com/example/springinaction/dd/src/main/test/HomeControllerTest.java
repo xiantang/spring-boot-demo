@@ -11,9 +11,9 @@ import spittr.config.JdbcConfig;
 import spittr.config.RootConfig;
 import spittr.config.WebConfig;
 import spittr.data.JdbcSpitterRepository;
+import spittr.data.SpitterRepository;
 import spittr.data.Spittle;
 import spittr.data.SpittleRepository;
-import sun.security.provider.ConfigFile;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class HomeControllerTest {
 
     @Autowired
-    private JdbcSpitterRepository jdbcSpitterRepository;
+    private SpitterRepository jdbcSpitterRepository;
 
     @Autowired
     private JdbcTemplate template;
